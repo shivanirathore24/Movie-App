@@ -76,3 +76,8 @@
    saves the return value for the derived class component.
 
 - `this.state = { ... }: ` This line initializes the component's state. In React, state is an object that holds data that may change over the lifecycle of the component. Setting the initial state in the constructor is a common practice.
+
+### 4. Binding "this"
+1. Way-1 Binding in JSX: `<button onClick={this.addStars.bind(this)}>...</button>` -> This binds 'this' to 'addStars' each time the button is clicked, but it is less efficient than the other methods since it creates a new function on every render.
+2. Way-2 Binding in Constructor : `this.addStars = this.addStars.bind(this);` -> binds the 'addStars' method to the component instance in the constructor. This ensures that this consistently refers to the component, providing reliable access to the component's state and methods, regardless of how the function is called.
+3. Way-3 Arrow Function: `addStars = () => { ... }` -> Defining 'addStars' as an arrow function automatically binds 'this' to the component's instance, so no additional binding is needed.

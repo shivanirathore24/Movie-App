@@ -12,6 +12,11 @@ class Moviecard extends Component {
       price: 199,
       rating: 8.9,
     };
+    this.addStars = this.addStars.bind(this); //Way-2 Binding
+  }
+
+  addStars = () => {
+    console.log("this:", this);
   }
   render() {
     const { title, plot, price, rating } = this.state;
@@ -47,6 +52,8 @@ class Moviecard extends Component {
                   alt="increase"
                   src="https://cdn-icons-png.flaticon.com/128/992/992651.png"
                   className="str-btn"
+                  // onClick={this.addStars.bind(this)} Way-1 Binding
+                  onClick={this.addStars}
                 />
                 <span>0</span>
               </div>
