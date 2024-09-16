@@ -12,6 +12,8 @@ class Moviecard extends Component {
       price: 199,
       rating: 8.9,
       stars: 0,
+      fav: false,
+      isInCart: false
     };
     this.addStars = this.addStars.bind(this); //Way-2 Binding
   }
@@ -48,9 +50,21 @@ class Moviecard extends Component {
     // console.log("this.state.stars :  ", this.state.stars);
   };
 
+  handleFav = () => {
+    this.setState({
+      fav: !this.state.fav,
+    });
+  };
+
+  handleAddToCart = () => {
+    this.setState({
+      isInCart: !this.state.isInCart,
+    });
+  };
+  
   render() {
     console.log("Rendered the component");
-    const { title, plot, price, rating, stars } = this.state;
+    const { title, plot, price, rating, stars, fav, isInCart} = this.state;
     return (
       <div className="main">
         <div className="movie-card">
@@ -84,13 +98,18 @@ class Moviecard extends Component {
                   alt="increase"
                   src="https://cdn-icons-png.flaticon.com/128/992/992651.png"
                   className="str-btn"
-                  // onClick={this.addStars.bind(this)} Way-1 Binding
-                  onClick={this.addStars}
+                  //onClick={this.addStars.bind(this)}  //Way-1 Binding
+                  onClick={this.addStars.bind(this)}
                 />
                 <span>{stars}</span>
               </div>
-              <button className="favourite-btn">Favourite</button>
-              <button className="cart-btn">Add To Cart</button>
+              {/* {fav ? <button className="unfavourite-btn" onClick={this.handleFav}>Un-Favourite</button> : 
+              <button className="favourite-btn" onClick={this.handleFav}>Favourite</button>} */}
+              <button className= {fav? "unfavourite-btn" : "favourite-btn" } 
+              onClick={this.handleFav}>{fav? "Unfavourite" : "Favourite" }</button>
+              
+              <button className= {isInCart? "removecart-btn" : "cart-btn" } 
+              onClick={this.handleAddToCart}>{isInCart? "Remove from Cart" : "Add to cart" }</button>
             </div>
           </div>
         </div>
