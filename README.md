@@ -127,3 +127,7 @@ Updated 'Moviecard.js' class component -> In the 'decStars' function, the this.s
    - This change triggers a re-render of the component, updating the button's appearance and text accordingly.
 
 - Similarly did for Cart Button.
+
+### Creating MovieList
+1. Create 'Movielist.js' file as component in React that imports the 'Moviecard component' and renders four Moviecard components within it.
+2. Now 'App component' renders the 'Movielist component', which in turn renders multiple Moviecard components.
