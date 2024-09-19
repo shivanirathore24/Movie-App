@@ -111,7 +111,6 @@ Updated 'Moviecard.js' class component -> In the 'decStars' function, the this.s
    So If we want to perform an action after the state value is updated we can pass a
    callback function as a second parameter to the setState method.
 
-
 ### Toggle the Favourite & Cart button
 
 1. Approach 1 -> uses a ternary operator to conditionally render one of the two buttons based on the fav state.
@@ -129,5 +128,21 @@ Updated 'Moviecard.js' class component -> In the 'decStars' function, the this.s
 - Similarly did for Cart Button.
 
 ### Creating MovieList
+
 1. Create 'Movielist.js' file as component in React that imports the 'Moviecard component' and renders four Moviecard components within it.
 2. Now 'App component' renders the 'Movielist component', which in turn renders multiple Moviecard components.
+
+### Passing data through props
+
+Updated 'Movielist' and 'Moviecard' Component
+
+1. Cut constructor part from 'MovieCard' component & paste it in 'Movielist' Component.
+   - constructor() is a special method used to initialize an object created with a class.
+   - The super() function calls the constructor of the parent class (Component in this case). This is necessary to access this in the constructor.
+   - State Initialization: 'this.state' is an object that holds the state variables for the Movielist component.
+2. Passing State as Props:
+   - this.state refers to the state object defined in the Movielist component.
+   - {this.state} is the value being passed to the movies prop of the Moviecard component.
+3. Props in Moviecard:
+   - The Moviecard component receives movies as a prop.
+   - Inside Moviecard, you can access the state values via this.props.movies.
